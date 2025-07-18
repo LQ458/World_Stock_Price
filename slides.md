@@ -452,18 +452,28 @@ layout: center
 
 <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded">
 <h4 class="font-bold mb-2">Elbow Method</h4>
-<p class="text-xs">Optimal k=2 where inertia reduction plateaus</p>
+
+```python
+inertias = []
+for k in range(2, 11):
+    kmeans = KMeans(n_clusters=k)
+    kmeans.fit(X_scaled)
+    inertias.append(kmeans.inertia_)
+```
+
+<p class="text-xs mt-1">Optimal k=2 where inertia plateaus</p>
 </div>
 
 <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded">
 <h4 class="font-bold mb-2">Standardization</h4>
-<p class="text-xs">z = (x - μ) / σ</p>
-<p class="text-xs">Normalizes feature scales</p>
-</div>
 
-<div class="bg-gray-50 dark:bg-gray-800 p-3 rounded">
-<h4 class="font-bold mb-2">K-means</h4>
-<p class="text-xs">Minimizes within-cluster variance</p>
+```python
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+# Formula: z = (x - μ) / σ
+```
+
+<p class="text-xs mt-1">Equalizes feature scales</p>
 </div>
 
 </div>
@@ -487,26 +497,30 @@ layout: center
 <div class="w-72 space-y-3 pl-6">
 
 <div class="bg-blue-50 dark:bg-blue-900/20 p-2 rounded">
-<h4 class="text-sm font-bold mb-1">Features</h4>
-<div class="text-xs space-y-1">
-<div>Volume & Return metrics</div>
-<div>Volatility measures</div>
-<div>Price statistics</div>
-</div>
+<h4 class="text-sm font-bold mb-1">Feature Engineering</h4>
+
+```python
+features = df.groupby('Brand_Name').agg({
+    'Volume': ['mean', 'std'],
+    'Daily_Return': ['mean', 'std'],
+    'Close': ['mean', 'std']
+})
+
+features['Volatility_Score'] = (
+    features['Daily_Return_std'] * 
+    features['Daily_Range_Pct_mean']
+)
+```
+
 </div>
 
 <div class="bg-yellow-50 dark:bg-yellow-900/20 p-2 rounded">
-<h4 class="text-sm font-bold mb-1">Heatmap</h4>
+<h4 class="text-sm font-bold mb-1">Heatmap Analysis</h4>
 <div class="text-xs space-y-1">
-<p>Darker = higher values</p>
-<p>Clear cluster separation</p>
-<p>Volume drives clustering</p>
+<p>Color intensity = feature values</p>
+<p>Clear cluster separation visible</p>
+<p>Volume & volatility drive clustering</p>
 </div>
-</div>
-
-<div class="bg-green-50 dark:bg-green-900/20 p-2 rounded">
-<h4 class="text-sm font-bold mb-1">Result</h4>
-<p class="text-xs">Two distinct trading profiles identified</p>
 </div>
 
 </div>
@@ -530,25 +544,40 @@ layout: center
 <div class="w-64 space-y-3 pl-6">
 
 <div class="bg-purple-50 dark:bg-purple-900/20 p-2 rounded">
-<h4 class="text-sm font-bold mb-1">PCA</h4>
-<p class="text-xs">6D → 2D visualization</p>
-<p class="text-xs">72.6% variance explained</p>
+<h4 class="text-sm font-bold mb-1">PCA Implementation</h4>
+
+```python
+pca = PCA(n_components=2, random_state=42)
+X_pca = pca.fit_transform(X_scaled)
+
+# 72.6% variance explained
+variance_ratio = pca.explained_variance_ratio_.sum()
+```
+
 </div>
 
 <div class="bg-gray-50 dark:bg-gray-800 p-2 rounded">
-<h4 class="text-sm font-bold mb-1">Results</h4>
-<p class="text-xs">61 companies, k=2</p>
-<p class="text-xs">Cluster 0: 19 (31%)</p>
-<p class="text-xs">Cluster 1: 42 (69%)</p>
+<h4 class="text-sm font-bold mb-1">K-means Clustering</h4>
+
+```python
+kmeans = KMeans(n_clusters=2, random_state=42)
+clusters = kmeans.fit_predict(X_scaled)
+
+cluster_df = pd.DataFrame({
+    'PC1': X_pca[:, 0], 'PC2': X_pca[:, 1],
+    'Cluster': clusters
+})
+```
+
 </div>
 
 <div class="space-y-2">
-<div class="text-center p-2 bg-blue-100 dark:bg-blue-900/20 rounded">
-<div class="text-xs font-bold text-blue-600">Cluster 0</div>
-<div class="text-xs">High-Activity</div>
+<div class="text-center p-1 bg-blue-100 dark:bg-blue-900/20 rounded">
+<div class="text-xs font-bold text-blue-600">Cluster 0: 19 (31%)</div>
+<div class="text-xs">High-Activity Stocks</div>
 </div>
-<div class="text-center p-2 bg-green-100 dark:bg-green-900/20 rounded">
-<div class="text-xs font-bold text-green-600">Cluster 1</div>
+<div class="text-center p-1 bg-green-100 dark:bg-green-900/20 rounded">
+<div class="text-xs font-bold text-green-600">Cluster 1: 42 (69%)</div>
 <div class="text-xs">Stable Blue-Chip</div>
 </div>
 </div>
