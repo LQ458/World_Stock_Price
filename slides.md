@@ -92,86 +92,222 @@ class: text-center
 </div>
 
 ---
-transition: slide-up
+layout: center
+class: text-center
 ---
 
-# Research Questions (1-3)
+# Research Questions Overview
 
-<div class="grid grid-cols-1 gap-4 pt-2">
+<div class="grid grid-cols-2 gap-8 pt-8">
 
-<v-clicks>
-
-<div class="p-4 rounded-xl bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 border-l-4 border-blue-500">
-<h3 class="text-lg font-bold text-blue-700 dark:text-blue-300 mb-2">Q1: Which company had the highest single-day closing price?</h3>
-<div class="bg-gray-800 text-green-400 p-2 rounded text-xs font-mono mb-2">
-top_row = df.loc[df["High"].idxmax()]
-</div>
-<div class="text-sm">
-<p><strong>Answer:</strong> Chipotle ($3,463.07)</p>
-<p><strong>Date:</strong> June 18, 2024</p>
-</div>
+<div class="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20">
+<h3 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-4">Market Analysis</h3>
+<ul class="text-left space-y-2 text-sm">
+<li>📈 Highest single-day closing price</li>
+<li>📊 Average daily trading volumes</li>
+<li>🌍 Geographic distribution</li>
+</ul>
 </div>
 
-<div class="p-4 rounded-xl bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 border-l-4 border-green-500">
-<h3 class="text-lg font-bold text-green-700 dark:text-green-300 mb-2">Q2: What is the average daily trading volume for each company?</h3>
-<div class="bg-gray-800 text-green-400 p-2 rounded text-xs font-mono mb-2">
-avg = df.groupby("Brand_Name")["Volume"].mean()
-</div>
-<div class="text-sm">
-<p><strong>Top 3:</strong> Apple (376.7M), Amazon (116.5M), Google (112.8M)</p>
-</div>
-</div>
-
-<div class="p-4 rounded-xl bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 border-l-4 border-purple-500">
-<h3 class="text-lg font-bold text-purple-700 dark:text-purple-300 mb-2">Q3: Which countries have the most companies represented?</h3>
-<div class="bg-gray-800 text-green-400 p-2 rounded text-xs font-mono mb-2">
-country_counts = df["Country"].value_counts()
-</div>
-<div class="text-sm">
-<p><strong>Results:</strong> USA (243,606), Japan (19,403), Germany (16,225)</p>
-</div>
+<div class="p-6 rounded-xl bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20">
+<h3 class="text-xl font-bold text-green-700 dark:text-green-300 mb-4">Investment Insights</h3>
+<ul class="text-left space-y-2 text-sm">
+<li>⚡ Stock volatility patterns</li>
+<li>💰 Dividend-paying companies</li>
+<li>📈 Long-term trends</li>
+<li>🎯 Optimal investment windows</li>
+</ul>
 </div>
 
-</v-clicks>
+</div>
 
+<div class="pt-8">
+<p class="text-gray-600 dark:text-gray-300">7 comprehensive research questions analyzed with data-driven insights</p>
 </div>
 
 ---
 layout: center
 ---
 
-# Research Questions (4-5)
+# Q1: Highest Single-Day Closing Price
 
-<div class="grid grid-cols-1 gap-6 pt-4">
+<div class="flex items-center justify-center h-full">
+<div class="max-w-4xl mx-auto">
 
-<v-clicks>
+<div class="p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 border-l-8 border-blue-500">
 
-<div class="p-6 rounded-xl bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 border-l-4 border-orange-500">
-<h3 class="text-xl font-bold text-orange-700 dark:text-orange-300 mb-3">Q4: Which company had the most volatile stock in terms of daily range?</h3>
-<div class="bg-gray-800 text-green-400 p-3 rounded text-sm font-mono mb-3">
+<h2 class="text-2xl font-bold text-blue-700 dark:text-blue-300 mb-6 text-center">Which company had the highest single-day closing price?</h2>
+
+<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-lg mb-6">
+top_row = df.loc[df["High"].idxmax()]
+</div>
+
+<div class="grid grid-cols-2 gap-8">
+<div class="text-center">
+<div class="text-4xl font-bold text-indigo-600 mb-2">$3,463.07</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">Chipotle Mexican Grill</div>
+</div>
+<div class="text-center">
+<div class="text-2xl font-bold text-blue-600 mb-2">June 18, 2024</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">Peak Trading Day</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+---
+layout: center
+---
+
+# Q2: Average Daily Trading Volume
+
+<div class="flex items-center justify-center h-full">
+<div class="max-w-4xl mx-auto">
+
+<div class="p-8 rounded-2xl bg-gradient-to-r from-green-50 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 border-l-8 border-green-500">
+
+<h2 class="text-2xl font-bold text-green-700 dark:text-green-300 mb-6 text-center">What is the average daily trading volume for each company?</h2>
+
+<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-lg mb-6">
+avg = df.groupby("Brand_Name")["Volume"].mean()
+</div>
+
+<div class="grid grid-cols-3 gap-6">
+<div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+<div class="text-3xl font-bold text-blue-600 mb-2">376.7M</div>
+<div class="text-lg font-semibold">Apple</div>
+<div class="text-sm text-gray-600">shares/day</div>
+</div>
+<div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+<div class="text-3xl font-bold text-orange-600 mb-2">116.5M</div>
+<div class="text-lg font-semibold">Amazon</div>
+<div class="text-sm text-gray-600">shares/day</div>
+</div>
+<div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+<div class="text-3xl font-bold text-red-600 mb-2">112.8M</div>
+<div class="text-lg font-semibold">Google</div>
+<div class="text-sm text-gray-600">shares/day</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+---
+layout: center
+---
+
+# Q3: Geographic Distribution
+
+<div class="flex items-center justify-center h-full">
+<div class="max-w-4xl mx-auto">
+
+<div class="p-8 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 border-l-8 border-purple-500">
+
+<h2 class="text-2xl font-bold text-purple-700 dark:text-purple-300 mb-6 text-center">Which countries have the most companies represented?</h2>
+
+<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-lg mb-6">
+country_counts = df["Country"].value_counts()
+</div>
+
+<div class="grid grid-cols-3 gap-6">
+<div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+<div class="text-4xl mb-2">🇺🇸</div>
+<div class="text-2xl font-bold text-blue-600">243,606</div>
+<div class="text-lg font-semibold">United States</div>
+</div>
+<div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+<div class="text-4xl mb-2">🇯🇵</div>
+<div class="text-2xl font-bold text-red-600">19,403</div>
+<div class="text-lg font-semibold">Japan</div>
+</div>
+<div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+<div class="text-4xl mb-2">🇩🇪</div>
+<div class="text-2xl font-bold text-yellow-600">16,225</div>
+<div class="text-lg font-semibold">Germany</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+---
+layout: center
+---
+
+# Q4: Stock Volatility Analysis
+
+<div class="flex items-center justify-center h-full">
+<div class="max-w-4xl mx-auto">
+
+<div class="p-8 rounded-2xl bg-gradient-to-r from-orange-50 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 border-l-8 border-orange-500">
+
+<h2 class="text-2xl font-bold text-orange-700 dark:text-orange-300 mb-6 text-center">Which company had the most volatile stock?</h2>
+
+<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-6">
 df['Volatility (%)'] = (df['High'] - df['Low']) / df['Low'] * 100
 max_vol_row = df.loc[df['Volatility (%)'].idxmax()]
 </div>
-<div class="text-left">
-<p><strong>Answer:</strong> Puma (784.21% volatility)</p>
-<p><strong>Date:</strong> June 10, 2019</p>
-<p><strong>Cause:</strong> Stock split event (10:1 split)</p>
+
+<div class="grid grid-cols-2 gap-8">
+<div class="text-center">
+<div class="text-5xl font-bold text-red-600 mb-2">784.21%</div>
+<div class="text-xl font-semibold">Puma SE</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">Daily Volatility</div>
+</div>
+<div class="text-center">
+<div class="text-2xl font-bold text-orange-600 mb-2">June 10, 2019</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">Stock Split Event</div>
+<div class="text-sm text-gray-600 dark:text-gray-400">(10:1 split)</div>
 </div>
 </div>
 
-<div class="p-6 rounded-xl bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-800/30 border-l-4 border-indigo-500">
-<h3 class="text-xl font-bold text-indigo-700 dark:text-indigo-300 mb-3">Q5: Which companies paid dividends in the dataset?</h3>
-<div class="bg-gray-800 text-green-400 p-3 rounded text-sm font-mono mb-3">
+</div>
+
+</div>
+</div>
+
+---
+layout: center
+---
+
+# Q5: Dividend-Paying Companies
+
+<div class="flex items-center justify-center h-full">
+<div class="max-w-4xl mx-auto">
+
+<div class="p-8 rounded-2xl bg-gradient-to-r from-indigo-50 to-blue-100 dark:from-indigo-900/30 dark:to-blue-900/30 border-l-8 border-indigo-500">
+
+<h2 class="text-2xl font-bold text-indigo-700 dark:text-indigo-300 mb-6 text-center">Which companies paid dividends in the dataset?</h2>
+
+<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-lg mb-6">
 dividend_companies = df[df["Dividends"] > 0]["Brand_Name"].unique()
+print(f"Found {len(dividend_companies)} dividend-paying companies")
 </div>
-<div class="text-left">
-<p><strong>Analysis:</strong> Multiple companies including major blue-chip stocks</p>
-<p><strong>Insight:</strong> Dividend-paying companies tend to be mature, established firms</p>
+
+<div class="grid grid-cols-2 gap-8">
+<div class="text-center">
+<div class="text-4xl font-bold text-indigo-600 mb-2">Multiple</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">Blue-Chip Companies</div>
+<div class="text-sm text-gray-600 dark:text-gray-400">Consistent dividend payments</div>
+</div>
+<div class="text-center">
+<div class="text-2xl font-bold text-blue-600 mb-2">Key Insight</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">Mature, Established Firms</div>
+<div class="text-sm text-gray-600 dark:text-gray-400">Strong cash flows</div>
 </div>
 </div>
 
-</v-clicks>
+</div>
 
+</div>
 </div>
 
 ---
@@ -179,33 +315,23 @@ layout: center
 background: https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1920&h=1080&fit=crop
 ---
 
-# Research Question 6: Greatest Upward Trend
+# Q6: Greatest Upward Trend
 
-<div class="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-8 rounded-2xl">
+<div class="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-6 rounded-2xl max-w-5xl mx-auto">
 
-<div class="text-center mb-6">
-<h2 class="text-2xl font-bold text-gray-800 dark:text-white">Which company showed the greatest upward trend?</h2>
+<div class="text-center mb-4">
+<h2 class="text-2xl font-bold text-gray-800 dark:text-white">Linear Regression Analysis Results</h2>
 </div>
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2 gap-6 mb-4">
 
-<div>
-<div class="bg-gray-800 text-green-400 p-4 rounded text-sm font-mono">
-from sklearn.linear_model import LinearRegression
-# Linear regression for each company
-for company, group in df.groupby('Brand_Name'):
-    x = group['Date'].map(pd.Timestamp.toordinal).values.reshape(-1, 1)
-    y = group['Close'].values
-    model = LinearRegression().fit(x, y)
-    start_pred = model.predict([[x.min()]])[0]
-    end_pred = model.predict([[x.max()]])[0]
-    increase = (end_pred - start_pred) / start_pred * 100
-</div>
+<div class="text-center">
+<img src="/q6.png" class="mx-auto max-w-full h-64 object-contain rounded-lg shadow-lg" alt="3M Company Linear Regression Trend"/>
+<p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">3M Company Stock Price Trend with Linear Regression Line</p>
 </div>
 
-<div>
-<v-click>
-<div class="p-4 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg">
+<div class="flex flex-col justify-center">
+<div class="p-4 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg mb-4">
 <div class="text-left">
 <p><strong>Winner:</strong> 3M Company</p>
 <p><strong>Increase:</strong> 874.79%</p>
@@ -213,76 +339,57 @@ for company, group in df.groupby('Brand_Name'):
 <p><strong>Price Growth:</strong> $16.23 → $158.24</p>
 </div>
 </div>
-</v-click>
+
+<div class="bg-gray-900 text-green-400 p-3 rounded text-xs font-mono">
+from sklearn.linear_model import LinearRegression
+model = LinearRegression().fit(x, y)
+increase = (end_pred - start_pred) / start_pred * 100
+</div>
 </div>
 
 </div>
-
-<v-click>
-<div class="mt-6 text-center">
-<img src="/q6.png" class="mx-auto max-w-md rounded-lg shadow-lg" alt="3M Company Linear Regression Trend"/>
-<p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">3M Company Stock Price Trend with Linear Regression Line</p>
-</div>
-</v-click>
 
 </div>
 
 ---
 layout: center
-background: https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1920&h=1080&fit=crop
 ---
 
-# Research Question 7: Best 5-Day Investment Windows
+# Q7: Best 5-Day Investment Windows
 
-<div class="backdrop-blur-sm bg-white/85 dark:bg-black/70 p-8 rounded-2xl">
+<div class="flex items-center justify-center h-full">
+<div class="max-w-4xl mx-auto">
 
-<div class="text-center mb-6">
-<h2 class="text-2xl font-bold text-gray-800 dark:text-white">Best 5-day period to invest in each company</h2>
-</div>
+<div class="p-8 rounded-2xl bg-gradient-to-r from-violet-50 to-purple-100 dark:from-violet-900/30 dark:to-purple-900/30 border-l-8 border-violet-500">
 
-<div class="grid grid-cols-2 gap-6">
+<h2 class="text-2xl font-bold text-violet-700 dark:text-violet-300 mb-6 text-center">Best 5-day period to invest in each company?</h2>
 
-<div>
-<div class="bg-gray-800 text-green-400 p-4 rounded text-sm font-mono">
+<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-6">
 # O(N) sliding window analysis
 df['Close_5'] = df.groupby('Brand_Name')['Close'].shift(-4)
 df['Pct5'] = (df['Close_5'] - df['Open']) / df['Open'] * 100
 best_windows = df.groupby('Brand_Name')['Pct5'].max().sort_values(ascending=False)
-best_idx = df.groupby('Brand_Name')['Pct5'].idxmax()
-</div>
 </div>
 
-<div>
-<v-click>
-<div class="p-4 bg-green-100 dark:bg-green-900/50 rounded-lg">
-<div class="text-left">
-<p><strong>Top Performers:</strong></p>
-<ul class="list-disc pl-6 text-sm">
-<li>Amazon: 64.83% (Apr 2001)</li>
-<li>Zoom: 56.21% (Aug 2020)</li>
-<li>Adobe: 49.72% (Feb 2000)</li>
-<li>Ubisoft: 36.04% (Sep 2024)</li>
+<div class="grid grid-cols-2 gap-6">
+<div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+<h3 class="text-lg font-bold text-violet-600 mb-3">Top Performers</h3>
+<ul class="text-sm space-y-1">
+<li>• Amazon: 64.83% (Apr 2001)</li>
+<li>• Zoom: 56.21% (Aug 2020)</li>
+<li>• Adobe: 49.72% (Feb 2000)</li>
+<li>• Ubisoft: 36.04% (Sep 2024)</li>
 </ul>
 </div>
+<div class="p-4 bg-violet-100 dark:bg-violet-900/30 rounded-xl">
+<h3 class="text-lg font-bold text-violet-700 dark:text-violet-300 mb-3">Key Insight</h3>
+<p class="text-sm">Best windows often coincide with major market events: dot-com recovery, COVID-19 tech surge, post-earnings surprises.</p>
 </div>
-</v-click>
 </div>
 
 </div>
 
-<v-click>
-<div class="mt-6 p-4 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg">
-<div class="text-left">
-<p><strong>Key Insight:</strong> Best windows often coincide with major market events:</p>
-<ul class="list-disc pl-6 text-sm">
-<li>Dot-com recovery periods (2000-2001)</li>
-<li>COVID-19 technology surge (2020)</li>
-<li>Post-earnings surprises</li>
-</ul>
 </div>
-</div>
-</v-click>
-
 </div>
 
 ---
@@ -292,51 +399,39 @@ background: https://images.unsplash.com/photo-1560472354-8b8b5b113b13?w=1920&h=1
 
 # Visualization 1: Apple Stock Candlestick Chart
 
-<div class="backdrop-blur-sm bg-white/90 dark:bg-black/70 p-8 rounded-2xl">
+<div class="backdrop-blur-sm bg-white/90 dark:bg-black/70 p-4 rounded-2xl max-w-5xl mx-auto">
 
-<div class="text-center mb-6">
-<h2 class="text-2xl font-bold text-gray-800 dark:text-white">Interactive Plotly Candlestick Visualization</h2>
+<div class="text-center mb-3">
+<h2 class="text-xl font-bold text-gray-800 dark:text-white">Interactive Plotly Candlestick Visualization</h2>
 </div>
 
-<div class="grid grid-cols-2 gap-8">
+<div class="text-center mb-3">
+<img src="/candlestick.png" class="mx-auto w-full max-w-4xl h-56 object-cover rounded-lg shadow-lg" alt="Apple Stock Candlestick Chart"/>
+</div>
 
-<div>
-<div class="bg-gray-800 text-green-400 p-4 rounded text-sm font-mono">
-import plotly.graph_objects as go
-
-fig = go.Figure(data=[go.Candlestick(
-    x=selected_company['Date'],
-    open=selected_company['Open'],
-    high=selected_company['High'],
-    low=selected_company['Low'],
-    close=selected_company['Close'])])
-
-fig.update_layout(title='Apple Stock Price')
-fig.show()
+<div class="text-center mb-3">
+<div class="bg-gray-900 text-green-400 p-2 rounded text-xs font-mono max-w-2xl mx-auto">
+fig = go.Figure(data=[go.Candlestick(x=dates, open=open, high=high, low=low, close=close)])
 </div>
 </div>
 
-<div>
-<div class="bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/30 dark:to-green-900/30 p-6 rounded-xl">
-<h3 class="text-lg font-bold mb-4">Generated Chart Shows:</h3>
-<div class="text-left">
-<ul class="space-y-2 text-sm">
-<li>🔍 25 years of OHLC data (2000-2025)</li>
-<li>📈 Long-term growth trend from $0.79 to $213</li>
-<li>⚡ Major market events (dot-com, 2008, COVID)</li>
-<li>💹 Trading volume patterns and spikes</li>
-</ul>
+<div class="grid grid-cols-4 gap-3 max-w-3xl mx-auto text-center">
+<div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded">
+<div class="text-xs font-bold">📊 25 Years</div>
+<div class="text-xs">OHLC Data</div>
 </div>
+<div class="p-2 bg-green-100 dark:bg-green-900/30 rounded">
+<div class="text-xs font-bold">📈 $0.79→$213</div>
+<div class="text-xs">Price Growth</div>
 </div>
+<div class="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded">
+<div class="text-xs font-bold">⚡ Events</div>
+<div class="text-xs">Market Cycles</div>
 </div>
-
+<div class="p-2 bg-purple-100 dark:bg-purple-900/30 rounded">
+<div class="text-xs font-bold">💹 Interactive</div>
+<div class="text-xs">Zoom & Hover</div>
 </div>
-
-<div class="mt-6 text-center">
-<img src="/candlestick.png" class="mx-auto max-w-2xl rounded-lg shadow-lg" alt="Apple Stock Candlestick Chart"/>
-<p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-<em>Interactive candlestick chart showing Apple's complete 25-year price history</em>
-</p>
 </div>
 
 </div>
@@ -346,50 +441,45 @@ layout: center
 background: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop
 ---
 
-# Visualization 2: K-means Clustering Analysis
+# Visualization 2: K-means Clustering Results
 
-<div class="backdrop-blur-sm bg-white/85 dark:bg-black/75 p-8 rounded-3xl">
+<div class="backdrop-blur-sm bg-white/85 dark:bg-black/75 p-4 rounded-2xl max-w-6xl mx-auto">
 
-<div class="text-center mb-4">
-<h2 class="text-2xl font-bold text-gray-800 dark:text-white">Elbow Method & Optimal Clusters</h2>
+<div class="text-center mb-3">
+<h2 class="text-xl font-bold text-gray-800 dark:text-white">Machine Learning Analysis Results</h2>
 </div>
 
-<div class="grid grid-cols-2 gap-6 mb-6">
-
-<div>
-<div class="bg-gray-800 text-green-400 p-3 rounded text-xs font-mono">
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
-
-# Elbow method for optimal k
-k_range = range(2, 11)
-inertias = []
-for k in k_range:
-    kmeans = KMeans(n_clusters=k, random_state=42)
-    kmeans.fit(features_scaled)
-    inertias.append(kmeans.inertia_)
-
-plt.plot(k_range, inertias, 'bo-')
-plt.title('Elbow Method')
-plt.show()
-</div>
-</div>
-
+<div class="grid grid-cols-3 gap-3 mb-3">
 <div class="text-center">
-<img src="/elbow.png" class="mx-auto max-w-xs rounded-lg shadow-lg" alt="Elbow Method Plot"/>
-<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Optimal k=2 clusters identified</p>
-</div>
-
-</div>
-
-<div class="grid grid-cols-2 gap-4">
-<div class="text-center">
-<img src="/cluster.png" class="mx-auto max-w-sm rounded-lg shadow-lg" alt="PCA Cluster Plot"/>
-<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">PCA Scatter Plot (72.6% variance)</p>
+<img src="/elbow.png" class="mx-auto w-full h-32 object-contain rounded-lg shadow" alt="Elbow Method"/>
+<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Elbow Method</p>
 </div>
 <div class="text-center">
-<img src="/heatmap.png" class="mx-auto max-w-sm rounded-lg shadow-lg" alt="Cluster Features Heatmap"/>
-<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Feature Analysis Heatmap</p>
+<img src="/cluster.png" class="mx-auto w-full h-32 object-contain rounded-lg shadow" alt="PCA Plot"/>
+<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">PCA Clustering</p>
+</div>
+<div class="text-center">
+<img src="/heatmap.png" class="mx-auto w-full h-32 object-contain rounded-lg shadow" alt="Heatmap"/>
+<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Feature Heatmap</p>
+</div>
+</div>
+
+<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
+<div class="text-center p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+<div class="text-lg font-bold text-blue-600">Cluster 0 (31%)</div>
+<div class="text-sm">19 Stable Blue-Chip Stocks</div>
+<div class="text-xs text-gray-600 mt-1">Lower volume, reduced volatility</div>
+</div>
+<div class="text-center p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
+<div class="text-lg font-bold text-green-600">Cluster 1 (69%)</div>
+<div class="text-sm">42 High-Activity Growth Stocks</div>
+<div class="text-xs text-gray-600 mt-1">Higher volume, increased volatility</div>
+</div>
+</div>
+
+<div class="text-center mt-3">
+<div class="inline-block px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 rounded text-xs">
+<strong>PCA Validation:</strong> 72.6% variance explained | <strong>Optimal k=2</strong> clusters identified
 </div>
 </div>
 
@@ -399,94 +489,38 @@ plt.show()
 layout: center
 ---
 
-# Clustering Results & Business Insights
+# Visualization 3: Cluster Plot with Centers
 
-<div class="grid grid-cols-2 gap-8 pt-4">
+<div class="max-w-5xl mx-auto">
 
-<div>
-<img src="/cluster2.png" class="mx-auto max-w-lg rounded-lg shadow-lg" alt="Cluster Visualization"/>
-<p class="text-center text-sm text-gray-600 dark:text-gray-300 mt-2">Static Matplotlib Cluster Plot with Centers</p>
+<div class="text-center mb-4">
+<h2 class="text-2xl font-bold">Static Matplotlib Visualization</h2>
 </div>
 
-<div>
-
-## Key Findings 🔍
-
-<v-clicks>
-
-- <strong>Cluster 0 (31%, 19 companies)</strong>: "Stable Blue-Chip Stocks"
-  - Lower trading volume, lower volatility
-  - Conservative investment profile
-
-- <strong>Cluster 1 (69%, 42 companies)</strong>: "High-Activity Growth Stocks"  
-  - Higher trading volume, higher volatility
-  - Growth-oriented investment profile
-
-- <strong>Statistical Validation</strong>: PCA explains 72.6% variance
-- <strong>Business Value</strong>: Natural framework for portfolio allocation
-
-</v-clicks>
-
+<div class="text-center mb-4">
+<img src="/cluster2.png" class="mx-auto w-full max-w-4xl h-64 object-contain rounded-lg shadow-lg" alt="Cluster Centers Plot"/>
+<p class="text-center text-sm text-gray-600 dark:text-gray-300 mt-2">Clustering results with centroids marked</p>
 </div>
 
+<div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
+<div class="p-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl">
+<h3 class="text-lg font-bold text-blue-700 dark:text-blue-300 mb-2">Conservative Portfolio</h3>
+<ul class="text-sm space-y-1">
+<li>• 19 companies (31% of dataset)</li>
+<li>• Lower average trading volume</li>
+<li>• Reduced price volatility</li>
+<li>• Stable long-term investment profile</li>
+</ul>
 </div>
-
----
-transition: slide-left
----
-
-# Clustering Technical Details
-
-<div class="grid grid-cols-2 gap-8 pt-4">
-
-<div>
-
-## Feature Engineering 🔧
-
-<v-clicks>
-
-```python
-# Calculate key features for clustering
-features = company_data.agg({
-    'Volume': 'mean',
-    'Daily_Return': ['mean', 'std'], 
-    'Daily_Range_Pct': 'mean',
-    'Close': 'mean',
-    'Volatility_Score': 'mean'
-}).round(3)
-
-# StandardScaler normalization
-scaler = StandardScaler()
-features_scaled = scaler.fit_transform(features)
-```
-
-</v-clicks>
-
+<div class="p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 rounded-xl">
+<h3 class="text-lg font-bold text-green-700 dark:text-green-300 mb-2">Growth Portfolio</h3>
+<ul class="text-sm space-y-1">
+<li>• 42 companies (69% of dataset)</li>
+<li>• Higher average trading activity</li>
+<li>• Increased price volatility</li>
+<li>• Growth-oriented investment profile</li>
+</ul>
 </div>
-
-<div>
-
-## Validation Methods 📊
-
-<v-clicks>
-
-- <strong>Elbow Method</strong>: Optimal k=2 clusters
-- <strong>PCA Analysis</strong>: 72.6% variance explained  
-- <strong>Silhouette Score</strong>: High cluster quality
-- <strong>Business Logic</strong>: Matches risk-return theory
-
-</v-clicks>
-
-## Applications 💼
-
-<v-clicks>
-
-- <strong>Portfolio Construction</strong>: Risk-based allocation
-- <strong>Client Matching</strong>: Risk tolerance alignment
-- <strong>Market Analysis</strong>: Sector rotation strategies
-
-</v-clicks>
-
 </div>
 
 </div>
