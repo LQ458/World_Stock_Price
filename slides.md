@@ -399,12 +399,12 @@ layout: center
 background: https://images.unsplash.com/photo-1560472354-8b8b5b113b13?w=1920&h=1080&fit=crop
 ---
 
-# Visualization 1: Apple Stock Candlestick Chart
+# Visualization 1: Plotly Candlestick Visualization
 
 <div class="backdrop-blur-sm bg-white/90 dark:bg-black/70 p-4 rounded-2xl max-w-5xl mx-auto">
 
 <div class="text-center mb-3">
-<h2 class="text-xl font-bold text-gray-800 dark:text-white">Interactive Plotly Candlestick Visualization</h2>
+<h2 class="text-xl font-bold text-gray-800 dark:text-white">Apple Stock Candlestick Chart </h2>
 </div>
 
 <div class="text-center mb-3">
@@ -440,49 +440,46 @@ fig = go.Figure(data=[go.Candlestick(x=dates, open=open, high=high, low=low, clo
 
 ---
 layout: center
-background: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop
 ---
 
-# Visualization 2: K-means Clustering Results
+# Visualization 2A: Model Selection & Preprocessing
 
-<div class="backdrop-blur-sm bg-white/85 dark:bg-black/75 p-4 rounded-2xl max-w-6xl mx-auto">
+<div class="flex h-full">
 
-<div class="text-center mb-3">
-<h2 class="text-xl font-bold text-gray-800 dark:text-white">Machine Learning Analysis Results</h2>
-</div>
-
-<div class="grid grid-cols-3 gap-3 mb-3">
-<div class="text-center">
-<img src="/elbow.png" class="mx-auto w-full h-32 object-contain rounded-lg shadow" alt="Elbow Method"/>
-<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Elbow Method</p>
-</div>
-<div class="text-center">
-<img src="/cluster.png" class="mx-auto w-full h-32 object-contain rounded-lg shadow" alt="PCA Plot"/>
-<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">PCA Clustering</p>
-</div>
-<div class="text-center">
-<img src="/heatmap.png" class="mx-auto w-full h-32 object-contain rounded-lg shadow" alt="Heatmap"/>
-<p class="text-xs text-gray-600 dark:text-gray-300 mt-1">Feature Heatmap</p>
+<div class="flex-1 flex items-center justify-center">
+<div class="w-full max-w-2xl">
+<img src="/elbow.png" class="w-full h-96 object-contain" alt="Elbow Method"/>
 </div>
 </div>
 
-<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
-<div class="text-center p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-<div class="text-lg font-bold text-blue-600">Cluster 0 (31%)</div>
-<div class="text-sm">19 Stable Blue-Chip Stocks</div>
-<div class="text-xs text-gray-600 mt-1">Lower volume, reduced volatility</div>
-</div>
-<div class="text-center p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
-<div class="text-lg font-bold text-green-600">Cluster 1 (69%)</div>
-<div class="text-sm">42 High-Activity Growth Stocks</div>
-<div class="text-xs text-gray-600 mt-1">Higher volume, increased volatility</div>
-</div>
+<div class="w-80 space-y-4 pl-8">
+
+<div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded">
+<h4 class="font-bold mb-2">Elbow Method</h4>
+
+```python
+inertias = []
+for k in range(2, 11):
+    kmeans = KMeans(n_clusters=k)
+    kmeans.fit(X_scaled)
+    inertias.append(kmeans.inertia_)
+```
+
+<p class="text-xs mt-1">Optimal k=2 where inertia plateaus</p>
 </div>
 
-<div class="text-center mt-3">
-<div class="inline-block px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 rounded text-xs">
-<strong>PCA Validation:</strong> 72.6% variance explained | <strong>Optimal k=2</strong> clusters identified
+<div class="bg-green-50 dark:bg-green-900/20 p-3 rounded">
+<h4 class="font-bold mb-2">Standardization</h4>
+
+```python
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+# Formula: z = (x - μ) / σ
+```
+
+<p class="text-xs mt-1">Equalizes feature scales</p>
 </div>
+
 </div>
 
 </div>
@@ -491,41 +488,109 @@ background: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1
 layout: center
 ---
 
-# Visualization 3: Cluster Plot with Centers
+# Visualization 2B: Feature Overview & Contribution Analysis
 
-<div class="max-w-5xl mx-auto">
+<div class="flex h-full">
 
-<div class="text-center mb-4">
-<h2 class="text-2xl font-bold">Static Matplotlib Visualization</h2>
-</div>
-
-<div class="text-center mb-4">
-<img src="/cluster2.png" class="mx-auto w-full max-w-4xl h-64 object-contain rounded-lg shadow-lg" alt="Cluster Centers Plot"/>
-<p class="text-center text-sm text-gray-600 dark:text-gray-300 mt-2">Clustering results with centroids marked</p>
-</div>
-
-<div class="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
-<div class="p-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl">
-<h3 class="text-lg font-bold text-blue-700 dark:text-blue-300 mb-2">Conservative Portfolio</h3>
-<ul class="text-sm space-y-1">
-<li>• 19 companies (31% of dataset)</li>
-<li>• Lower average trading volume</li>
-<li>• Reduced price volatility</li>
-<li>• Stable long-term investment profile</li>
-</ul>
-</div>
-<div class="p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 rounded-xl">
-<h3 class="text-lg font-bold text-green-700 dark:text-green-300 mb-2">Growth Portfolio</h3>
-<ul class="text-sm space-y-1">
-<li>• 42 companies (69% of dataset)</li>
-<li>• Higher average trading activity</li>
-<li>• Increased price volatility</li>
-<li>• Growth-oriented investment profile</li>
-</ul>
+<div class="flex-1 flex items-center justify-center">
+<div class="w-full max-w-3xl">
+<img src="/heatmap.png" class="w-full h-96 object-contain" alt="Feature Heatmap"/>
 </div>
 </div>
 
+<div class="w-72 space-y-3 pl-6">
+
+<div class="bg-blue-50 dark:bg-blue-900/20 p-2 rounded">
+<h4 class="text-sm font-bold mb-1">Feature Engineering</h4>
+
+```python
+features = df.groupby('Brand_Name').agg({
+    'Volume': ['mean', 'std'],
+    'Daily_Return': ['mean', 'std'],
+    'Close': ['mean', 'std']
+})
+
+features['Volatility_Score'] = (
+    features['Daily_Return_std'] * 
+    features['Daily_Range_Pct_mean']
+)
+```
+
 </div>
+
+<div class="bg-yellow-50 dark:bg-yellow-900/20 p-2 rounded">
+<h4 class="text-sm font-bold mb-1">Heatmap Analysis</h4>
+<div class="text-xs space-y-1">
+<p>Color intensity = feature values</p>
+<p>Clear cluster separation visible</p>
+<p>Volume & volatility drive clustering</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+---
+layout: center
+---
+
+# Visualization 2C: PCA Analysis & Clustering Results
+
+<div class="flex h-full">
+
+<div class="flex-1 flex items-center justify-center">
+<div class="w-full max-w-4xl">
+<img src="/cluster.png" class="w-full h-96 object-contain" alt="PCA Clustering"/>
+</div>
+</div>
+
+<div class="w-64 space-y-3 pl-6">
+
+<div class="bg-purple-50 dark:bg-purple-900/20 p-2 rounded">
+<h4 class="text-sm font-bold mb-1">PCA Implementation</h4>
+
+```python
+pca = PCA(n_components=2, random_state=42)
+X_pca = pca.fit_transform(X_scaled)
+
+# 72.6% variance explained
+variance_ratio = pca.explained_variance_ratio_.sum()
+```
+
+</div>
+
+<div class="bg-gray-50 dark:bg-gray-800 p-2 rounded">
+<h4 class="text-sm font-bold mb-1">K-means Clustering</h4>
+
+```python
+kmeans = KMeans(n_clusters=2, random_state=42)
+clusters = kmeans.fit_predict(X_scaled)
+
+cluster_df = pd.DataFrame({
+    'PC1': X_pca[:, 0], 'PC2': X_pca[:, 1],
+    'Cluster': clusters
+})
+```
+
+</div>
+
+<div class="space-y-2">
+<div class="text-center p-1 bg-blue-100 dark:bg-blue-900/20 rounded">
+<div class="text-xs font-bold text-blue-600">Cluster 0: 19 (31%)</div>
+<div class="text-xs">High-Activity Stocks</div>
+</div>
+<div class="text-center p-1 bg-green-100 dark:bg-green-900/20 rounded">
+<div class="text-xs font-bold text-green-600">Cluster 1: 42 (69%)</div>
+<div class="text-xs">Stable Blue-Chip</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
 
 ---
 layout: center
@@ -556,110 +621,3 @@ class: text-center
 
 </div>
 
----
-layout: center
----
-
-# Methodology & Technical Excellence
-
-<div class="pt-4">
-
-## Data Science Pipeline
-
-```mermaid
-graph LR
-    A["Data Collection<br/>310K+ records"] --> B["Preprocessing<br/>Feature Engineering"]
-    B --> C["Exploratory Analysis<br/>Statistical Testing"]
-    C --> D["Machine Learning<br/>K-means Clustering"]
-    D --> E["Visualization<br/>Interactive Charts"]
-    E --> F["Business Insights<br/>Recommendations"]
-    
-    style A fill:#e1f5fe
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#fce4ec
-    style F fill:#f1f8e9
-```
-
-  </div>
-</div>
-
-<div class="grid grid-cols-2 gap-8 pt-8">
-
-<div>
-
-### Technical Stack
-- <strong>Python</strong> ecosystem (pandas, scikit-learn, plotly)
-- <strong>Statistical analysis</strong> and hypothesis testing
-- <strong>Machine learning</strong> clustering algorithms
-- <strong>Interactive visualization</strong> with Plotly
-
-</div>
-
-<div>
-
-### Validation Methods
-- <strong>Elbow method</strong> for optimal clustering
-- <strong>PCA analysis</strong> for dimensionality reduction  
-- <strong>Cross-validation</strong> of results
-- <strong>Statistical significance</strong> testing
-
-</div>
-
-</div>
-
----
-layout: center
-class: text-center
----
-
-# Conclusions & Impact
-
-<div class="text-xl leading-relaxed pt-8">
-
-<v-clicks>
-
-🎯 <strong>Successfully identified</strong> two distinct trading behavior clusters in global stock markets
-
-📊 <strong>Validated financial theory</strong> through data-driven clustering analysis
-
-💼 <strong>Created actionable framework</strong> for investment decision-making and risk management
-
-🔬 <strong>Demonstrated</strong> the power of machine learning in financial market analysis
-
-🚀 <strong>Provided foundation</strong> for future research and business applications
-
-</v-clicks>
-
-</div>
-
-<div class="pt-12">
-<v-click>
-
-## Thank You
-### Questions & Discussion
-
-</v-click>
-</div>
-
----
-layout: center
-class: text-center
----
-
-# Appendix: Technical Details
-
-Available for detailed discussion:
-
-- <strong>Statistical methodology</strong> and validation
-- <strong>Feature engineering</strong> process
-- <strong>Clustering algorithm</strong> parameters
-- <strong>Visualization</strong> implementation
-- <strong>Business application</strong> frameworks
-
-<div class="pt-8">
-<a href="https://github.com/your-repo/world-stock-analysis" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-  View Project Repository
-</a>
-</div>
