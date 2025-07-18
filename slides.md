@@ -95,6 +95,10 @@ class: text-center
   </v-clicks>
 </div>
 
+<!--
+wejioasfjiopaesfj
+-->
+
 ---
 layout: center
 ---
@@ -658,4 +662,4 @@ Available for detailed discussion:
 <a href="https://github.com/your-repo/world-stock-analysis" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
   View Project Repository
 </a>
-</div> 
+</div>
