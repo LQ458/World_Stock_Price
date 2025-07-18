@@ -13,47 +13,36 @@ download: true
 ---
 
 # World Stock Price Analysis
-## A Data-Driven Exploration of Global Financial Markets
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
+## Ryan, Leo, Ethan
 
 ---
 transition: fade-out
+layout: center
+class: text-center
 ---
 
 # Project Overview
 
-<div class="flex items-center justify-center h-full">
-<div class="text-center">
+<div class="grid grid-cols-2 gap-12 mt-12">
 
-## Team Members
-<div class="flex justify-center gap-8 pt-6 text-2xl">
-<div class="p-4 rounded-lg bg-blue-100 dark:bg-blue-900/30"><strong>Ryan</strong></div>
-<div class="p-4 rounded-lg bg-green-100 dark:bg-green-900/30"><strong>Leo</strong></div>
-<div class="p-4 rounded-lg bg-purple-100 dark:bg-purple-900/30"><strong>Ethan</strong></div>
-</div>
+  <div class="p-6 rounded-xl bg-blue-50 dark:bg-blue-900/20">
+    Primary Objectives
+    <ul class="text-left list-disc list-inside space-y-2 mt-4">
+      <li>Analyze global trading behaviors</li>
+      <li>Cluster companies by trading characteristics</li>
+    </ul>
+  </div>
 
-<div class="pt-12">
-
-## Primary Objective
-
-<v-clicks>
-
-- 🎯 <strong>Analyze</strong> global stock market trading behaviors
-- 📊 <strong>Identify</strong> patterns in company performance  
-- 🔍 <strong>Cluster</strong> companies based on trading characteristics
-- 💡 <strong>Generate</strong> actionable insights for investors
-
-</v-clicks>
+  <div class="p-6 rounded-xl bg-green-50 dark:bg-green-900/20">
+    Why This?
+    <ul class="text-left list-disc list-inside space-y-2 mt-4">
+      <li>Interested in finance, quant, HFT</li>
+      <li>Wanted to apply data analysis to real financial datasets</li>
+    </ul>
+  </div>
 
 </div>
 
-</div>
-</div>
 
 ---
 layout: center
@@ -62,33 +51,31 @@ class: text-center
 
 # Dataset Overview
 
-<div class="grid grid-cols-3 gap-8 pt-8">
+<div class="grid grid-cols-3 gap-12 mt-8">
 
-<div class="text-center">
-<div class="text-6xl text-blue-600 font-bold">310K+</div>
-<div class="text-lg text-gray-600">Data Points</div>
+  <div class="text-center">
+    <div class="text-6xl font-bold">310,122</div>
+    <div class="text-lg text-gray-600">records</div>
+  </div>
+
+  <div class="text-center">
+    <div class="text-6xl font-bold">62</div>
+    <div class="text-lg text-gray-600">companies</div>
+  </div>
+
+  <div class="text-center">
+    <div class="text-6xl font-bold">25 years</div>
+    <div class="text-lg text-gray-600">time span</div>
+  </div>
+
 </div>
 
-<div class="text-center">
-<div class="text-6xl text-green-600 font-bold">62</div>
-<div class="text-lg text-gray-600">Companies</div>
-</div>
-
-<div class="text-center">
-<div class="text-6xl text-purple-600 font-bold">25</div>
-<div class="text-lg text-gray-600">Years of Data</div>
-</div>
-
-</div>
-
-<div class="pt-8">
-<v-clicks>
-
-- <strong>Time Range</strong>: 2000-2025 daily stock prices
-- <strong>Global Coverage</strong>: Multiple countries and industries
-- <strong>Rich Features</strong>: OHLCV data + metadata (country, industry, dividends)
-
-</v-clicks>
+<div class="mt-8 max-w-2xl mx-auto text-left">
+  <ul class="list-disc list-inside space-y-2">
+    <li>Date range: January 3, 2000 to July 3, 2025</li>
+    <li>Features: open, high, low, close, volume, dividends, splits, capital gains</li>
+    <li>Metadata: ticker, industry, country</li>
+  </ul>
 </div>
 
 ---
@@ -98,31 +85,14 @@ class: text-center
 
 # Research Questions Overview
 
-<div class="grid grid-cols-2 gap-8 pt-8">
-
-<div class="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20">
-<h3 class="text-xl font-bold text-blue-700 dark:text-blue-300 mb-4">Market Analysis</h3>
-<ul class="text-left space-y-2 text-sm">
-<li>📈 Highest single-day closing price</li>
-<li>📊 Average daily trading volumes</li>
-<li>🌍 Geographic distribution</li>
-</ul>
-</div>
-
-<div class="p-6 rounded-xl bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20">
-<h3 class="text-xl font-bold text-green-700 dark:text-green-300 mb-4">Investment Insights</h3>
-<ul class="text-left space-y-2 text-sm">
-<li>⚡ Stock volatility patterns</li>
-<li>💰 Dividend-paying companies</li>
-<li>📈 Long-term trends</li>
-<li>🎯 Optimal investment windows</li>
-</ul>
-</div>
-
-</div>
-
-<div class="pt-8">
-<p class="text-gray-600 dark:text-gray-300">7 comprehensive research questions analyzed with data-driven insights</p>
+<div class="mt-8 max-w-3xl mx-auto text-left">
+  <v-clicks>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Price & volume patterns: extremes, averages, volatility, and unusual spikes</li>
+      <li>Distribution & behavior: geographic/industry breakdown and dividend activity</li>
+      <li>Trend & strategy evaluation: long‑term growth, optimal window to trade</li>
+    </ul>
+  </v-clicks>
 </div>
 
 ---
@@ -149,7 +119,7 @@ top_row = df.loc[df["High"].idxmax()]
 </div>
 <div class="text-center">
 <div class="text-2xl font-bold text-blue-600 mb-2">June 18, 2024</div>
-<div class="text-lg text-gray-700 dark:text-gray-300">Peak Trading Day</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">Peak Day</div>
 </div>
 </div>
 
@@ -177,19 +147,16 @@ avg = df.groupby("Brand_Name")["Volume"].mean()
 
 <div class="grid grid-cols-3 gap-6">
 <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-<div class="text-3xl font-bold text-blue-600 mb-2">376.7M</div>
+<div class="text-3xl font-bold text-blue-600 mb-2">$376.7M</div>
 <div class="text-lg font-semibold">Apple</div>
-<div class="text-sm text-gray-600">shares/day</div>
 </div>
 <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-<div class="text-3xl font-bold text-orange-600 mb-2">116.5M</div>
+<div class="text-3xl font-bold text-orange-600 mb-2">$116.5M</div>
 <div class="text-lg font-semibold">Amazon</div>
-<div class="text-sm text-gray-600">shares/day</div>
 </div>
 <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-<div class="text-3xl font-bold text-red-600 mb-2">112.8M</div>
+<div class="text-3xl font-bold text-red-600 mb-2">$112.8M</div>
 <div class="text-lg font-semibold">Google</div>
-<div class="text-sm text-gray-600">shares/day</div>
 </div>
 </div>
 
@@ -217,17 +184,14 @@ country_counts = df["Country"].value_counts()
 
 <div class="grid grid-cols-3 gap-6">
 <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-<div class="text-4xl mb-2">🇺🇸</div>
 <div class="text-2xl font-bold text-blue-600">243,606</div>
 <div class="text-lg font-semibold">United States</div>
 </div>
 <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-<div class="text-4xl mb-2">🇯🇵</div>
 <div class="text-2xl font-bold text-red-600">19,403</div>
 <div class="text-lg font-semibold">Japan</div>
 </div>
 <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-<div class="text-4xl mb-2">🇩🇪</div>
 <div class="text-2xl font-bold text-yellow-600">16,225</div>
 <div class="text-lg font-semibold">Germany</div>
 </div>
@@ -251,9 +215,11 @@ layout: center
 
 <h2 class="text-2xl font-bold text-orange-700 dark:text-orange-300 mb-6 text-center">Which company had the most volatile stock?</h2>
 
-<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-6">
+<div class="bg-gray-900 p-4 rounded-lg mb-6">
+<pre class="text-green-400 font-mono text-sm">
 df['Volatility (%)'] = (df['High'] - df['Low']) / df['Low'] * 100
 max_vol_row = df.loc[df['Volatility (%)'].idxmax()]
+</pre>
 </div>
 
 <div class="grid grid-cols-2 gap-8">
@@ -263,9 +229,9 @@ max_vol_row = df.loc[df['Volatility (%)'].idxmax()]
 <div class="text-lg text-gray-700 dark:text-gray-300">Daily Volatility</div>
 </div>
 <div class="text-center">
-<div class="text-2xl font-bold text-orange-600 mb-2">June 10, 2019</div>
-<div class="text-lg text-gray-700 dark:text-gray-300">Stock Split Event</div>
-<div class="text-sm text-gray-600 dark:text-gray-400">(10:1 split)</div>
+<div class="text-5xl font-bold text-orange-600 mb-2">June 10, 2019</div>
+<div class="text-xl font-semibold">Stock Split</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">(10:1 Split)</div>
 </div>
 </div>
 
@@ -285,23 +251,29 @@ layout: center
 
 <div class="p-8 rounded-2xl bg-gradient-to-r from-indigo-50 to-blue-100 dark:from-indigo-900/30 dark:to-blue-900/30 border-l-8 border-indigo-500">
 
-<h2 class="text-2xl font-bold text-indigo-700 dark:text-indigo-300 mb-6 text-center">Which companies paid dividends in the dataset?</h2>
+<h2 class="text-2xl font-bold text-indigo-700 dark:text-indigo-300 mb-6 text-center">
+Which companies paid dividends in the dataset?
+</h2>
 
-<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-lg mb-6">
+<div class="bg-gray-900 p-4 rounded-lg mb-6">
+<pre class="text-green-400 font-mono text-lg">
 dividend_companies = df[df["Dividends"] > 0]["Brand_Name"].unique()
-print(f"Found {len(dividend_companies)} dividend-paying companies")
+</pre>
 </div>
 
 <div class="grid grid-cols-2 gap-8">
 <div class="text-center">
-<div class="text-4xl font-bold text-indigo-600 mb-2">Multiple</div>
-<div class="text-lg text-gray-700 dark:text-gray-300">Blue-Chip Companies</div>
-<div class="text-sm text-gray-600 dark:text-gray-400">Consistent dividend payments</div>
+<div class="text-5xl font-bold text-indigo-600 mb-2">44</div>
+<div class="text-lg font-semibold">Dividend‑paying companies</div>
+<div class="text-sm text-gray-600 mt-2">
+e.g., Apple, Microsoft, Nike, Coca‑Cola, JP Morgan
+</div>
 </div>
 <div class="text-center">
-<div class="text-2xl font-bold text-blue-600 mb-2">Key Insight</div>
-<div class="text-lg text-gray-700 dark:text-gray-300">Mature, Established Firms</div>
-<div class="text-sm text-gray-600 dark:text-gray-400">Strong cash flows</div>
+<div class="text-2xl font-bold text-blue-600 mb-2">Insight</div>
+<div class="text-lg text-gray-700 dark:text-gray-300">
+Dividends concentrate in large‑cap, mature firms across sectors
+</div>
 </div>
 </div>
 
@@ -312,84 +284,110 @@ print(f"Found {len(dividend_companies)} dividend-paying companies")
 
 ---
 layout: center
-background: https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1920&h=1080&fit=crop
+class: text-center
 ---
 
 # Q6: Greatest Upward Trend
 
-<div class="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-6 rounded-2xl max-w-5xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
+  <div class="flex flex-col space-y-6">
+    <img
+      src="/q6.png"
+      class="w-full h-70 object-contain rounded-xl shadow-lg"
+      alt="Trend line for top performer"
+    />
+    <div class="bg-emerald-100 dark:bg-emerald-900/70 p-6 rounded-xl text-center shadow-lg">
+      <div class="text-2xl font-bold text-emerald-700 dark:text-emerald-300 mb-2">
+        Winner: 3M Co
+      </div>
+      <div class="text-xl text-emerald-600 dark:text-emerald-200 mb-4">
+        874.8% ↑
+      </div>
+      <div class="text-lg text-gray-700 dark:text-gray-200">
+        <span class="font-semibold">2000–2025:</span> $16.2 → $158.2
+      </div>
+    </div>
+  </div>
+  
+  <div class="w-full text-left">
 
-<div class="text-center mb-4">
-<h2 class="text-2xl font-bold text-gray-800 dark:text-white">Linear Regression Analysis Results</h2>
-</div>
+```python
+df['Date'] = pd.to_datetime(df['Date'], utc=True)
+results = []
+for company, group in df.groupby('Brand_Name'):
+    group = group.sort_values('Date')
+    if len(group) < 2: 
+        continue
+    x = group['Date'].map(pd.Timestamp.toordinal).values.reshape(-1, 1)
+    y = group['Close'].values
+    model = LinearRegression().fit(x, y)
+    start_ord, end_ord = x[0, 0], x[-1, 0]
+    start_pred = model.predict([[start_ord]])[0]
+    end_pred = model.predict([[end_ord]])[0]  
+    increase = (end_pred - start_pred) / start_pred * 100   
+    results.append({
+        'Brand_Name': company,
+        'Start_Date': group['Date'].iloc[0].date(),
+        'End_Date': group['Date'].iloc[-1].date(),
+        'Start_Price': start_pred,
+        'End_Price': end_pred,
+        'Increase': f"{increase:.2f}%",
+    })
 
-<div class="grid grid-cols-2 gap-6 mb-4">
-
-<div class="text-center">
-<img src="/q6.png" class="mx-auto max-w-full h-64 object-contain rounded-lg shadow-lg" alt="3M Company Linear Regression Trend"/>
-<p class="text-gray-600 dark:text-gray-300 mt-2 text-sm">3M Company Stock Price Trend with Linear Regression Line</p>
-</div>
-
-<div class="flex flex-col justify-center">
-<div class="p-4 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg mb-4">
-<div class="text-left">
-<p><strong>Winner:</strong> 3M Company</p>
-<p><strong>Increase:</strong> 874.79%</p>
-<p><strong>Period:</strong> 2000-2025</p>
-<p><strong>Price Growth:</strong> $16.23 → $158.24</p>
-</div>
-</div>
-
-<div class="bg-gray-900 text-green-400 p-3 rounded text-xs font-mono">
-from sklearn.linear_model import LinearRegression
-model = LinearRegression().fit(x, y)
-increase = (end_pred - start_pred) / start_pred * 100
-</div>
-</div>
-
-</div>
-
+results_df = pd.DataFrame(results)
+max_increase = results_df.loc[results_df['Increase'].idxmax()]
+```
+  </div>
 </div>
 
 ---
 layout: center
 ---
 
-# Q7: Best 5-Day Investment Windows
+# Q7: Best 5‑Day Investment Windows
 
-<div class="flex items-center justify-center h-full">
-<div class="max-w-4xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4 w-full">
+  <div class="space-y-4 text-left">
+    <h3 class="text-xl font-bold text-violet-700 dark:text-violet-300">Top Performers</h3>
+    <ul class="list-disc list-inside space-y-1 text-sm">
+      <li>Amazon: 64.83% (April 2001)</li>
+      <li>Zoom: 56.21% (August 2020)</li>
+      <li>Adobe: 49.72% (February 2000)</li>
+      <li>Ubisoft: 36.04% (September 2024)</li>
+    </ul>
+    <h3 class="text-xl font-bold text-violet-700 dark:text-violet-300">Key Insight</h3>
+    <p class="text-sm">Opportunity windows align with major market events such as the dot‑com recovery, CoVID-19 surge, and earnings beats.</p>
+  </div>
 
-<div class="p-8 rounded-2xl bg-gradient-to-r from-violet-50 to-purple-100 dark:from-violet-900/30 dark:to-purple-900/30 border-l-8 border-violet-500">
-
-<h2 class="text-2xl font-bold text-violet-700 dark:text-violet-300 mb-6 text-center">Best 5-day period to invest in each company?</h2>
-
-<div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-6">
-# O(N) sliding window analysis
+  <div class="w-full text-left">
+```python
+df = df.sort_values(['Brand_Name', 'Date'], ignore_index=True)
 df['Close_5'] = df.groupby('Brand_Name')['Close'].shift(-4)
+df['End_Date'] = df.groupby('Brand_Name')['Date'].shift(-4)
 df['Pct5'] = (df['Close_5'] - df['Open']) / df['Open'] * 100
-best_windows = df.groupby('Brand_Name')['Pct5'].max().sort_values(ascending=False)
-</div>
+valid = df.dropna(subset=['Pct5'])
+best_idx = valid.groupby('Brand_Name')['Pct5'].idxmax()
 
-<div class="grid grid-cols-2 gap-6">
-<div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-<h3 class="text-lg font-bold text-violet-600 mb-3">Top Performers</h3>
-<ul class="text-sm space-y-1">
-<li>• Amazon: 64.83% (Apr 2001)</li>
-<li>• Zoom: 56.21% (Aug 2020)</li>
-<li>• Adobe: 49.72% (Feb 2000)</li>
-<li>• Ubisoft: 36.04% (Sep 2024)</li>
-</ul>
-</div>
-<div class="p-4 bg-violet-100 dark:bg-violet-900/30 rounded-xl">
-<h3 class="text-lg font-bold text-violet-700 dark:text-violet-300 mb-3">Key Insight</h3>
-<p class="text-sm">Best windows often coincide with major market events: dot-com recovery, COVID-19 tech surge, post-earnings surprises.</p>
-</div>
-</div>
+results = (
+  valid.loc[best_idx, ['Brand_Name','Date','End_Date','Open','Close_5','Pct5']]
+    .rename(columns={
+      'Date':'Start_Date',
+      'Open':'Day1_Open',
+      'Close_5':'Day5_Close',
+      'Pct5':'%_Increase'
+    })
+    .assign(
+      Start_Date=lambda x: x['Start_Date'].dt.date,
+      End_Date=lambda x: x['End_Date'].dt.date,
+      Day1_Open=lambda x: x['Day1_Open'].map(lambda v: f"{v:.2f}"),
+      Day5_Close=lambda x: x['Day5_Close'].map(lambda v: f"{v:.2f}"),
+      **{'%_Increase': lambda x: x['%_Increase'].map(lambda v: f"{v:.2f}%")}
+    )
+    .sort_values('%_Increase', ascending=False)
+)
+```
+  </div>
 
-</div>
-
-</div>
 </div>
 
 ---
@@ -580,6 +578,7 @@ graph LR
     style F fill:#f1f8e9
 ```
 
+  </div>
 </div>
 
 <div class="grid grid-cols-2 gap-8 pt-8">
